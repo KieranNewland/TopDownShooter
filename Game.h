@@ -2,6 +2,7 @@
 #include <vector>
 #include <SFML\Graphics.hpp>
 #include "GameObject.h"
+#include "PlayerObject.h"
 
 class Game
 {
@@ -10,21 +11,25 @@ public:
 	~Game();
 
 public:
-	void Update();
+	void Update(float);
 	void Render(sf::RenderWindow&);
 
 private:
-	GameObject* m_pGameObject;
+	PlayerObject * m_pGameObject;
 
+	//Static functions
+public:
 	static std::vector<GameObject*> m_aGameObjects;
 
-public:
-	static GameObject *AddGameObject(const char* szTexturePath)
+	template<class T>
+	static T *AddGameObject()
 	{
-		GameObject* pGameObject = new GameObject(szTexturePath);
-		m_aGameObjects.push_back(pGameObject);
+		static_assert(std::is_base_of<GameObject, T>::value, "Trying to create a gameobject which isn't derived from GameObject)");
 
-		return pGameObject;
+		GameObject* pGameObject = new T();
+		m_aGameObjects.push_back((GameObject*)pGameObject);
+
+		return (T*)pGameObject;
 	}
 
 	static void RemoveGameObject(GameObject &pObject)

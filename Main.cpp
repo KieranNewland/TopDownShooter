@@ -8,6 +8,7 @@ int main()
 	Game pGame = Game();
 
 	sf::Event event;
+	sf::Clock pClock;
 
 	while (pWindow.isOpen())
 	{
@@ -17,7 +18,8 @@ int main()
 				pWindow.close();
 		}
 
-		pGame.Update();
+		sf::Time pTimeDelta = pClock.restart();
+		pGame.Update(pTimeDelta.asSeconds());
 
 		//Render
 		pWindow.clear();
