@@ -1,8 +1,8 @@
 #pragma once
-#include "GameObject.h"
+#include "Character.h"
 #include "GunController.h"
 
-class PlayerObject : public GameObject
+class PlayerObject : public Character
 {
 public:
 	PlayerObject();
@@ -10,6 +10,11 @@ public:
 
 public:
 	void Update(float nDeltaTime) override;
+
+
+protected:
+	void onHit() override;
+	void onDeath() override;
 
 private:
 	void moveInDirection(float&, float, float);

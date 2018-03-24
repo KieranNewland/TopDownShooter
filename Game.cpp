@@ -6,8 +6,7 @@ std::vector<GameObject*> Game::m_aQueuedForLayerUpdate;
 
 Game::Game()
 {
-	m_pPlayerObject = Game::AddGameObject<PlayerObject>();
-	m_pPlayerObject->SetPosition(sf::Vector2f(400, 500));
+
 }
 
 Game::~Game()
@@ -20,7 +19,7 @@ void Game::Update(float nTimeDelta)
 {
 	for (std::pair<const int, GameObject*> pGameObject : m_aGameObjects)
 	{
-		if (pGameObject.second->GetDestroyed())
+		if (pGameObject.second->GetDestroyedState())
 			continue;
 
 		pGameObject.second->Update(nTimeDelta);
@@ -36,7 +35,7 @@ void Game::Render(sf::RenderWindow &pWindow)
 {
 	for (std::pair<const int, GameObject*> pGameObject : m_aGameObjects)
 	{
-		if (pGameObject.second->GetDestroyed())
+		if (pGameObject.second->GetDestroyedState())
 			continue;
 
 		pGameObject.second->Render(pWindow);
@@ -70,6 +69,7 @@ void Game::deleteDestroyedGameObjects()
 		{
 			if (pIterator->second == pObject)
 			{
+				delete(pIterator->second);
 				m_aGameObjects.erase(pIterator);
 				break;
 			}

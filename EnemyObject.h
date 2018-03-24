@@ -1,13 +1,16 @@
 #pragma once
-#include "GameObject.h"
+#include "Character.h"
 
-class EnemyObject : public GameObject
+class EnemyObject : public Character
 {
 public:
 	EnemyObject();
 	~EnemyObject();
 
-public:
-	void OnHit();
+protected:
+	void onHit() override;
+	void onDeath() override;
+
+private:
 };
 

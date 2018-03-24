@@ -23,7 +23,7 @@ public:
 	void SetRenderLayer(int nLayer);
 
 	void Destroy() { m_bDestroyed = true; }
-	bool GetDestroyed() { return m_bDestroyed; }
+	bool GetDestroyedState() { return m_bDestroyed; }
 
 	virtual void Update(float nTimeDelta);
 

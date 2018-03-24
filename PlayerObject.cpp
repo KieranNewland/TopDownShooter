@@ -1,8 +1,8 @@
 #include "PlayerObject.h"
 #include "SFML\Graphics.hpp"
-#include <algorithm>
+#include "Game.h"
 
-PlayerObject::PlayerObject()
+PlayerObject::PlayerObject() : Character(3)
 {
 	SetTexture("Assets/player.png");
 	SetCenterAnchor(sf::Vector2f(0.5f, 0.5f));
@@ -76,4 +76,14 @@ void PlayerObject::moveInDirection(float& nAcceleration, float nAmt, float nTime
 
 	if (nAcceleration > 1)
 		nAcceleration = 1;
+}
+
+void PlayerObject::onHit()
+{
+
+}
+
+void PlayerObject::onDeath()
+{
+	Game::DestroyGameObject(this);
 }
