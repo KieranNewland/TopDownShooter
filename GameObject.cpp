@@ -1,4 +1,5 @@
 #include "GameObject.h"
+#include "Game.h"
 
 int GameObject::m_nGameObjectIndex;
 
@@ -32,6 +33,12 @@ void GameObject::Render(sf::RenderWindow &pWindow)
 	pWindow.draw(m_pSprite);
 }
 
+void GameObject::SetCenterAnchor(sf::Vector2f pCenter)
+{
+	m_pCenterAnchor = pCenter;
+	SetPosition(m_pSprite.getPosition());
+}
+
 void GameObject::SetPosition(float nX, float nY)
 {
 	SetPosition(sf::Vector2f(nX, nY));
@@ -56,4 +63,10 @@ sf::Vector2f GameObject::GetPosition()
 	pPosition.y += m_pCenterAnchor.y * pSize.y;
 	
 	return pPosition;
+}
+
+void GameObject::SetRenderLayer(int nLayer)
+{
+	m_nRenderLayer = nLayer;
+	Game::UpdateGameObjectLayer(this);
 }

@@ -1,7 +1,8 @@
 #pragma once
 #include <vector>
 #include <SFML\Graphics.hpp>
-#include <unordered_map>
+#include <list>
+#include <map>
 #include "GameObject.h"
 #include "PlayerObject.h"
 
@@ -20,30 +21,26 @@ private:
 
 	//Static functions
 public:
-	static std::vector<GameObject*> m_aGameObjects;
-	//static std::unordered_map<GameObject*> m_aGameObjects;
+	static std::multimap<const int, GameObject*> m_aGameObjects;
+	static std::vector<GameObject*> m_aDestroyed;
+	static std::vector<GameObject*> m_aQueuedForLayerUpdate;
 
 	template<class T>
 	static T *AddGameObject()
 	{
-		static_assert(std::is_base_of<GameObject, T>::value, "Trying to create a gameobject which isn't derived from GameObject)");
+		static_assert(std::is_base_of<GameObject, T>::value, "Trying to create a gameobject which isn't derived from GameObject.");
 
 		GameObject* pGameObject = new T();
-		m_aGameObjects.push_back((GameObject*)pGameObject);
+		m_aGameObjects.insert(std::pair<const int, GameObject*>(pGameObject->GetRenderLayer(), pGameObject));
 
 		return (T*)pGameObject;
 	}
 
-	static void RemoveGameObject(GameObject &pObject)
-	{
-		for (int i = 0; i < m_aGameObjects.size(); i++)
-		{
-			if (m_aGameObjects[i] == &pObject)
-			{
-				m_aGameObjects.erase(m_aGameObjects.begin() + i);
-				return;
-			}
-		}
-	}
+	static void DestroyGameObject(GameObject *pObject);
+	static void UpdateGameObjectLayer(GameObject* pObject);
+
+private:
+	static void deleteDestroyedGameObjects();
+	static void updateFlaggedLayers();
 };
 

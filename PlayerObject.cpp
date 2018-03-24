@@ -6,6 +6,7 @@ PlayerObject::PlayerObject()
 {
 	SetTexture("Assets/player.png");
 	SetCenterAnchor(sf::Vector2f(0.5f, 0.5f));
+	SetRenderLayer(1);
 }
 
 PlayerObject::~PlayerObject()

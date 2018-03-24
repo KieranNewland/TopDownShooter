@@ -25,5 +25,5 @@ void Projectile::Update(float nTimeDelta)
 	SetPosition(pPosition);
 
 	if (pPosition.y < -100)
-		Game::RemoveGameObject(*this);
+		Game::DestroyGameObject(this);
 }
