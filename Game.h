@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <SFML\Graphics.hpp>
+#include <unordered_map>
 #include "GameObject.h"
 #include "PlayerObject.h"
 
@@ -20,6 +21,7 @@ private:
 	//Static functions
 public:
 	static std::vector<GameObject*> m_aGameObjects;
+	//static std::unordered_map<GameObject*> m_aGameObjects;
 
 	template<class T>
 	static T *AddGameObject()

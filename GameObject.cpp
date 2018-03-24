@@ -39,7 +39,21 @@ void GameObject::SetPosition(float nX, float nY)
 
 void GameObject::SetPosition(sf::Vector2f pPosition)
 {
-	m_nXPosition = pPosition.x;
-	m_nYPosition = pPosition.y;
+	sf::Vector2u pSize = GetSize();
+
+	pPosition.x -= pSize.x * m_pCenterAnchor.x;
+	pPosition.y -= pSize.y * m_pCenterAnchor.y;
+
 	m_pSprite.setPosition(pPosition);
+}
+
+sf::Vector2f GameObject::GetPosition()
+{
+	sf::Vector2f pPosition = m_pSprite.getPosition();
+	sf::Vector2u pSize = GetSize();
+
+	pPosition.x += m_pCenterAnchor.x * pSize.x;
+	pPosition.y += m_pCenterAnchor.y * pSize.y;
+	
+	return pPosition;
 }

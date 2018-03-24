@@ -1,19 +1,22 @@
 #include "PlayerObject.h"
+#include "SFML\Graphics.hpp"
 #include <algorithm>
 
 PlayerObject::PlayerObject()
 {
 	SetTexture("Assets/player.png");
+	SetCenterAnchor(sf::Vector2f(0.5f, 0.5f));
 }
 
 PlayerObject::~PlayerObject()
 {
+
 }
 
 void PlayerObject::Update(float nTimeDelta)
 {
 	//Get key input
-	int nXDirection = 0, nYDirection = 0;
+	float nXDirection = 0, nYDirection = 0;
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 		nXDirection--;
@@ -24,18 +27,27 @@ void PlayerObject::Update(float nTimeDelta)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 		nYDirection++;
 
+	//Move in the direction of the input
 	moveInDirection(m_nXAcceleration, nXDirection, nTimeDelta);
 	moveInDirection(m_nYAcceleration, nYDirection, nTimeDelta);
 
-	SetPosition(m_nXPosition + m_nXAcceleration, m_nYPosition + m_nYAcceleration);
+	sf::Vector2f pPosition = GetPosition();
+	pPosition.x += m_nXAcceleration;
+	pPosition.y += m_nYAcceleration;
+	SetPosition(pPosition);
+
+	//Update gun
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+		m_pGun.Shoot(pPosition);
+
+	m_pGun.Update(nTimeDelta);
 }
 
 void PlayerObject::moveInDirection(float& nAcceleration, float nAmt, float nTimeDelta)
 {
-	float nAccelerationStrength = nAmt * m_nAccelerationStrength * nTimeDelta;
-	nAcceleration += nAccelerationStrength;
+	nAcceleration += nAmt * m_nAccelerationStrength * nTimeDelta;
 
-	//Decelerate
+	//Decelerate - can probably be made to look nicer
 	float nDecelerationAmt = nTimeDelta * m_nDecelerationStrength;
 	if (nAcceleration > 0)
 	{
@@ -59,9 +71,4 @@ void PlayerObject::moveInDirection(float& nAcceleration, float nAmt, float nTime
 
 	if (nAcceleration > 1)
 		nAcceleration = 1;
-}
-
-void PlayerObject::updateGraphics()
-{
-
 }

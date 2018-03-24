@@ -13,6 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Character">
+      <UniqueIdentifier>{67386c9f-b141-4457-bd74-f2ebb1eb4240}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Character\Player">
+      <UniqueIdentifier>{9f16ca7f-abdd-4a73-988a-0a6f8f5e37b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Character">
+      <UniqueIdentifier>{77394133-a6f9-4385-9c28-2bba826cd698}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Character\Player">
+      <UniqueIdentifier>{71d456f2-93eb-4b52-8bef-649a7e181602}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Character\Gun">
+      <UniqueIdentifier>{2f755fe3-2c7d-406b-b554-78b7f17053f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Character\Gun">
+      <UniqueIdentifier>{c2a523dd-3785-4fb8-9af7-f1db6c21dbd4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -25,7 +43,13 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PlayerObject.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Character\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="GunController.cpp">
+      <Filter>Source Files\Character\Gun</Filter>
+    </ClCompile>
+    <ClCompile Include="Projectile.cpp">
+      <Filter>Source Files\Character\Gun</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -36,7 +60,13 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PlayerObject.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Character\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="GunController.h">
+      <Filter>Header Files\Character\Gun</Filter>
+    </ClInclude>
+    <ClInclude Include="Projectile.h">
+      <Filter>Header Files\Character\Gun</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

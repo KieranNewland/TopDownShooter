@@ -1,5 +1,6 @@
 #pragma once
 #include "GameObject.h"
+#include "GunController.h"
 
 class PlayerObject : public GameObject
 {
@@ -12,10 +13,11 @@ public:
 
 private:
 	void moveInDirection(float&, float, float);
-	void updateGraphics();
 
 	float m_nXAcceleration, m_nYAcceleration;
 	const float m_nAccelerationStrength = 1.2f;
 	const float m_nDecelerationStrength = 6;
+
+	GunController m_pGun;
 };
 

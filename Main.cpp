@@ -18,6 +18,9 @@ int main()
 				pWindow.close();
 		}
 
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+			pWindow.close();
+
 		sf::Time pTimeDelta = pClock.restart();
 		pGame.Update(pTimeDelta.asSeconds());
 
