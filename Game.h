@@ -1,10 +1,10 @@
 #pragma once
 #include <vector>
-#include <SFML\Graphics.hpp>
-#include <list>
 #include <map>
 #include "GameObject.h"
 #include "PlayerObject.h"
+#include "EnemyObject.h"
+#include "LevelManager.h"
 
 class Game
 {
@@ -17,7 +17,9 @@ public:
 	void Render(sf::RenderWindow&);
 
 private:
-	PlayerObject * m_pGameObject;
+	PlayerObject *m_pPlayerObject;
+
+	LevelManager m_pLevelManager;
 
 	//Static functions
 public:

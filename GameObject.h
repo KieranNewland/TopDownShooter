@@ -17,6 +17,7 @@ public:
 	sf::Vector2f GetPosition();
 
 	sf::Vector2u GetSize() { return m_pTexture.getSize(); }
+	sf::FloatRect GetBoundingBox() { return m_pSprite.getGlobalBounds(); }
 
 	int GetRenderLayer() { return m_nRenderLayer; }
 	void SetRenderLayer(int nLayer);

@@ -1,18 +1,14 @@
 #include "Projectile.h"
 #include "Game.h"
-#include "LevelManager.h"
 
 Projectile::Projectile()
 {
 	SetTexture("Assets/player_laser.png");
 	SetCenterAnchor(sf::Vector2f(0.5f, 0));
-
-	LevelManager::m_pInstance->AddProjectile(this);
 }
 
 Projectile::~Projectile()
 {
-
 }
 
 void Projectile::SetDirection(sf::Vector2f pDirection)
@@ -29,16 +25,5 @@ void Projectile::Update(float nTimeDelta)
 	SetPosition(pPosition);
 
 	if (pPosition.y < -100)
-		destroyProjectile();
-}
-
-void Projectile::OnHit()
-{
-	destroyProjectile();
-}
-
-void Projectile::destroyProjectile()
-{
-	LevelManager::m_pInstance->RemoveProjectile(this);
-	Game::DestroyGameObject(this);
+		Game::DestroyGameObject(this);
 }

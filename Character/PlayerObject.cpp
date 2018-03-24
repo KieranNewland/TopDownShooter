@@ -39,11 +39,7 @@ void PlayerObject::Update(float nTimeDelta)
 
 	//Update gun
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-	{
-		sf::Vector2f pShootPosition = pPosition;
-		pShootPosition.y -= 20;
-		m_pGun.Shoot(pShootPosition);
-	}
+		m_pGun.Shoot(pPosition);
 
 	m_pGun.Update(nTimeDelta);
 }

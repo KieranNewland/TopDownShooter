@@ -6,7 +6,8 @@ std::vector<GameObject*> Game::m_aQueuedForLayerUpdate;
 
 Game::Game()
 {
-	m_pGameObject = Game::AddGameObject<PlayerObject>();
+	m_pPlayerObject = Game::AddGameObject<PlayerObject>();
+	m_pPlayerObject->SetPosition(sf::Vector2f(400, 500));
 }
 
 Game::~Game()
@@ -25,6 +26,8 @@ void Game::Update(float nTimeDelta)
 		pGameObject.second->Update(nTimeDelta);
 	}
 
+	m_pLevelManager.Update(nTimeDelta);
+
 	deleteDestroyedGameObjects();
 	updateFlaggedLayers();
 }
@@ -41,6 +44,7 @@ void Game::Render(sf::RenderWindow &pWindow)
 }
 
 //Static functions
+
 void Game::DestroyGameObject(GameObject* pObject)
 {
 	m_aDestroyed.push_back(pObject);

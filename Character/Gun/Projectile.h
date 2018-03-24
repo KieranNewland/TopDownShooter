@@ -13,12 +13,8 @@ public:
 	void SetDirection(sf::Vector2f);
 	void SetSpeed(float nSpeed) { m_nTravelSpeed = nSpeed; }
 
-	void OnHit();
-
 private:
 	sf::Vector2f m_pDirection;
 	float m_nTravelSpeed;
-
-	void destroyProjectile();
 };
 

@@ -1,13 +1,13 @@
 #include "GunController.h"
 #include "Game.h"
 
+
 GunController::GunController()
 {
 }
 
 GunController::~GunController()
 {
-
 }
 
 void GunController::Update(float nTimeDelta)
@@ -24,6 +24,7 @@ void GunController::Shoot(sf::Vector2f pPosition)
 	pProjectile->SetPosition(pPosition);
 	pProjectile->SetDirection(sf::Vector2f(0, -1));
 	pProjectile->SetSpeed(1000);
+	m_aProjectiles.push_back(pProjectile);
 
 	m_nTimeUntilNextShot = m_nTimeBetweenShots;
 }

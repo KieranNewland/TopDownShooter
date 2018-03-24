@@ -15,5 +15,7 @@ public:
 private:
 	float m_nTimeUntilNextShot;
 	const float m_nTimeBetweenShots = 0.2f;
+
+	std::vector<Projectile*> m_aProjectiles;
 };
 

@@ -31,6 +31,18 @@
     <Filter Include="Header Files\Character\Gun">
       <UniqueIdentifier>{c2a523dd-3785-4fb8-9af7-f1db6c21dbd4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Character\Enemy">
+      <UniqueIdentifier>{0e5642bc-da9b-432a-85b5-a7b4fa1dc3d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Character\Enemy">
+      <UniqueIdentifier>{91f2c7a4-a038-45ee-b7a1-61ae752791a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Level">
+      <UniqueIdentifier>{6309390d-df2b-4956-8e46-a156ab330ebf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Level">
+      <UniqueIdentifier>{963f0973-f51d-4119-a9cb-1ccc1a4b46b9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -51,6 +63,12 @@
     <ClCompile Include="Projectile.cpp">
       <Filter>Source Files\Character\Gun</Filter>
     </ClCompile>
+    <ClCompile Include="EnemyObject.cpp">
+      <Filter>Source Files\Character\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelManager.cpp">
+      <Filter>Source Files\Level</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -67,6 +85,12 @@
     </ClInclude>
     <ClInclude Include="Projectile.h">
       <Filter>Header Files\Character\Gun</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyObject.h">
+      <Filter>Header Files\Character\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelManager.h">
+      <Filter>Header Files\Level</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
