@@ -37,21 +37,21 @@
     <Filter Include="Source Files\Character\Enemy">
       <UniqueIdentifier>{91f2c7a4-a038-45ee-b7a1-61ae752791a4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Level">
+    <Filter Include="Source Files\Core">
+      <UniqueIdentifier>{92175b45-677b-4309-afc4-21d39bd5b96a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core">
+      <UniqueIdentifier>{9b94b71e-e9fb-4347-9874-85c848fbd6bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Gameplay">
       <UniqueIdentifier>{6309390d-df2b-4956-8e46-a156ab330ebf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Level">
+    <Filter Include="Source Files\Gameplay">
       <UniqueIdentifier>{963f0973-f51d-4119-a9cb-1ccc1a4b46b9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PlayerObject.cpp">
@@ -66,20 +66,29 @@
     <ClCompile Include="EnemyObject.cpp">
       <Filter>Source Files\Character\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="LevelManager.cpp">
-      <Filter>Source Files\Level</Filter>
-    </ClCompile>
     <ClCompile Include="Character.cpp">
       <Filter>Source Files\Character</Filter>
     </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Source Files\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="BackgroundManager.cpp">
+      <Filter>Source Files\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Screen.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="UIManager.cpp">
+      <Filter>Source Files\Gameplay</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="PlayerObject.h">
       <Filter>Header Files\Character\Player</Filter>
     </ClInclude>
@@ -92,11 +101,26 @@
     <ClInclude Include="EnemyObject.h">
       <Filter>Header Files\Character\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="LevelManager.h">
-      <Filter>Header Files\Level</Filter>
-    </ClInclude>
     <ClInclude Include="Character.h">
       <Filter>Header Files\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>Header Files\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="BackgroundManager.h">
+      <Filter>Header Files\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Screen.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="UIManager.h">
+      <Filter>Header Files\Gameplay</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

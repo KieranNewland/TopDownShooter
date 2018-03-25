@@ -11,6 +11,7 @@ public:
 public:
 	void Update(float nDeltaTime) override;
 
+	static int m_nMaxLives;
 
 protected:
 	void onHit() override;

@@ -1,9 +1,11 @@
 #include <SFML/Graphics.hpp>
 #include "Game.h"
+#include "Screen.h"
 
 int main()
 {
-	sf::RenderWindow pWindow(sf::VideoMode(800, 600), "Kieran Newland - Top Down Shooter");
+	Screen::Init(800, 600);
+	sf::RenderWindow pWindow(sf::VideoMode(Screen::m_nScreenWidth, Screen::m_nScreenHeight), "Kieran Newland - Top Down Shooter");
 
 	Game pGame = Game();
 

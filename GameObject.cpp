@@ -39,7 +39,7 @@ void GameObject::SetCenterAnchor(sf::Vector2f pCenter)
 	SetPosition(m_pSprite.getPosition());
 }
 
-void GameObject::SetPosition(float nX, float nY)
+void GameObject::SetPosition(const float nX, const float nY)
 {
 	SetPosition(sf::Vector2f(nX, nY));
 }
@@ -69,4 +69,9 @@ void GameObject::SetRenderLayer(int nLayer)
 {
 	m_nRenderLayer = nLayer;
 	Game::UpdateGameObjectLayer(this);
+}
+
+void GameObject::SetScale(const sf::Vector2f pScale)
+{
+	m_pSprite.setScale(pScale);
 }

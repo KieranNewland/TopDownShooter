@@ -2,7 +2,9 @@
 #include "SFML\Graphics.hpp"
 #include "Game.h"
 
-PlayerObject::PlayerObject() : Character(3)
+int PlayerObject::m_nMaxLives = 3;
+
+PlayerObject::PlayerObject() : Character(m_nMaxLives)
 {
 	SetTexture("Assets/player.png");
 	SetCenterAnchor(sf::Vector2f(0.5f, 0.5f));

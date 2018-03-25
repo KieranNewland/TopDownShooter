@@ -3,12 +3,14 @@
 #include "EnemyObject.h"
 #include "Projectile.h"
 #include "PlayerObject.h"
+#include "BackgroundManager.h"
+#include "UIManager.h"
 
-class LevelManager
+class GameManager
 {
 public:
-	LevelManager();
-	~LevelManager();
+	GameManager();
+	~GameManager();
 
 	void Update(float nTimeDelta);
 
@@ -17,12 +19,14 @@ public:
 
 	void DestroyEnemy(EnemyObject*);
 
-	static LevelManager* m_pInstance;
+	static GameManager* m_pInstance;
 
 private:
 	std::vector<EnemyObject*> m_aEnemies;
 	std::vector<Projectile*> m_aProjectiles;
 
-	PlayerObject *m_pPlayerObject;
+	BackgroundManager m_pBackground;
+	UIManager m_pUI;
+	PlayerObject* m_pPlayerObject;
 };
 

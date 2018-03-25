@@ -10,6 +10,8 @@ public:
 public:
 	void InflictDamage(int);
 
+	int GetHealth() { return m_nCurrentHealth; }
+
 protected:
 	const int m_nMaxHealth;
 	int m_nCurrentHealth;

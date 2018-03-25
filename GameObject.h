@@ -11,8 +11,9 @@ public:
 	void SetTexture(const char*);
 	void Render(sf::RenderWindow&);
 
-	void SetPosition(float nX, float nY);
+	void SetPosition(const float nX, const float nY);
 	void SetPosition(sf::Vector2f);
+	void SetScale(const sf::Vector2f);
 	void SetCenterAnchor(sf::Vector2f pCenter);
 	sf::Vector2f GetPosition();
 

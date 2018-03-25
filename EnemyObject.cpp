@@ -18,6 +18,6 @@ void EnemyObject::onHit()
 
 void EnemyObject::onDeath()
 {
-	LevelManager::m_pInstance->DestroyEnemy(this);
+	GameManager::m_pInstance->DestroyEnemy(this);
 	Game::DestroyGameObject(this);
 }

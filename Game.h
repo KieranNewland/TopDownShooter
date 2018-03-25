@@ -2,7 +2,7 @@
 #include <vector>
 #include <map>
 #include "GameObject.h"
-#include "LevelManager.h"
+#include "GameManager.h"
 
 class Game
 {
@@ -15,7 +15,7 @@ public:
 	void Render(sf::RenderWindow&);
 
 private:
-	LevelManager m_pLevelManager;
+	GameManager m_pGameManager;
 
 	//Static functions
 public:

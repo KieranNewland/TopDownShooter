@@ -25,7 +25,7 @@ void Game::Update(float nTimeDelta)
 		pGameObject.second->Update(nTimeDelta);
 	}
 
-	m_pLevelManager.Update(nTimeDelta);
+	m_pGameManager.Update(nTimeDelta);
 
 	deleteDestroyedGameObjects();
 	updateFlaggedLayers();
