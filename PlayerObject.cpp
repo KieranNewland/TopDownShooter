@@ -6,7 +6,7 @@ int PlayerObject::m_nMaxLives = 3;
 
 PlayerObject::PlayerObject() : Character(m_nMaxLives)
 {
-	SetTexture("Assets/player.png");
+	SetTexture("Assets/Character/player.png");
 	SetCenterAnchor(sf::Vector2f(0.5f, 0.5f));
 	SetRenderLayer(1);
 }

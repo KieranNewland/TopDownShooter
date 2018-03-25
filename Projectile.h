@@ -15,6 +15,9 @@ public:
 
 	void OnHit();
 
+protected:
+	virtual void onDestroyed() {}
+
 private:
 	sf::Vector2f m_pDirection;
 	float m_nTravelSpeed;

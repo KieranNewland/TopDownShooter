@@ -15,7 +15,7 @@ UIManager::~UIManager()
 
 void UIManager::SetLives(const int nLives)
 {
-	int nDifference = nLives - m_aLifeSprites.size();
+	int nDifference = nLives - (int)m_aLifeSprites.size();
 
 	if (nDifference > 0)
 	{
@@ -32,14 +32,15 @@ void UIManager::SetLives(const int nLives)
 void UIManager::addLifeSprite()
 {
 	GameObject* pLifeSprite = Game::AddGameObject<GameObject>();
-	pLifeSprite->SetTexture("Assets/life.png");
-	pLifeSprite->SetPosition(sf::Vector2f(36 * m_aLifeSprites.size() + 20, 20));
+	pLifeSprite->SetTexture("Assets/UI/life.png");
+	pLifeSprite->SetPosition(sf::Vector2f(36 * (float)m_aLifeSprites.size() + 20, 20));
+	pLifeSprite->SetRenderLayer(2);
 	m_aLifeSprites.push_back(pLifeSprite);
 }
 
 void UIManager::removeLifeSprite()
 {
-	const int nLastIndex = m_aLifeSprites.size() - 1;
+	const size_t nLastIndex = m_aLifeSprites.size() - 1;
 	GameObject* pSprite = m_aLifeSprites[nLastIndex];
 	Game::DestroyGameObject(pSprite);
 	m_aLifeSprites.erase(m_aLifeSprites.begin() + nLastIndex);

@@ -15,6 +15,7 @@ GameManager::GameManager()
 	{
 		EnemyObject* pEnemyObject = Game::AddGameObject<EnemyObject>();
 		pEnemyObject->SetPosition(sf::Vector2f(200 + i * 100, 100));
+		pEnemyObject->SetRenderLayer(1);
 		m_aEnemies.push_back(pEnemyObject);
 	}
 }
@@ -32,12 +33,12 @@ void GameManager::Update(float nTimeDelta)
 		pEnemyBox = m_aEnemies[i]->GetBoundingBox();
 
 		//Collide projectiles with enemies
-		for (int j = 0; j < m_aProjectiles.size(); j++)
+		for (int j = 0; j < m_aPlayerProjectiles.size(); j++)
 		{
-			if (pEnemyBox.intersects(m_aProjectiles[j]->GetBoundingBox()))
+			if (pEnemyBox.intersects(m_aPlayerProjectiles[j]->GetBoundingBox()))
 			{
 				m_aEnemies[i]->InflictDamage(1);
-				m_aProjectiles[j]->OnHit();
+				m_aPlayerProjectiles[j]->OnHit();
 				break;
 			}
 		}
@@ -52,13 +53,25 @@ void GameManager::Update(float nTimeDelta)
 	}
 }
 
-void GameManager::RemoveProjectile(Projectile* pProjectile)
+void GameManager::RemovePlayerProjectile(PlayerProjectile* pProjectile)
 {
-	for (int i = 0; i < m_aProjectiles.size(); i++)
+	for (int i = 0; i < m_aPlayerProjectiles.size(); i++)
 	{
-		if (m_aProjectiles[i] == pProjectile)
+		if (m_aPlayerProjectiles[i] == pProjectile)
 		{
-			m_aProjectiles.erase(m_aProjectiles.begin() + i);
+			m_aPlayerProjectiles.erase(m_aPlayerProjectiles.begin() + i);
+			return;
+		}
+	}
+}
+
+void GameManager::RemoveEnemyProjectile(EnemyProjectile* pProjectile)
+{
+	for (int i = 0; i < m_aEnemyProjectiles.size(); i++)
+	{
+		if (m_aEnemyProjectiles[i] == pProjectile)
+		{
+			m_aEnemyProjectiles.erase(m_aEnemyProjectiles.begin() + i);
 			return;
 		}
 	}

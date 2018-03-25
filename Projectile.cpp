@@ -4,10 +4,7 @@
 
 Projectile::Projectile()
 {
-	SetTexture("Assets/player_laser.png");
 	SetCenterAnchor(sf::Vector2f(0.5f, 0));
-
-	GameManager::m_pInstance->AddProjectile(this);
 }
 
 Projectile::~Projectile()
@@ -39,6 +36,6 @@ void Projectile::OnHit()
 
 void Projectile::destroyProjectile()
 {
-	GameManager::m_pInstance->RemoveProjectile(this);
 	Game::DestroyGameObject(this);
+	onDestroyed();
 }

@@ -1,7 +1,8 @@
 #pragma once
 #include <vector>
 #include "EnemyObject.h"
-#include "Projectile.h"
+#include "PlayerProjectile.h"
+#include "EnemyProjectile.h"
 #include "PlayerObject.h"
 #include "BackgroundManager.h"
 #include "UIManager.h"
@@ -14,8 +15,11 @@ public:
 
 	void Update(float nTimeDelta);
 
-	void AddProjectile(Projectile* pProjectile) { m_aProjectiles.push_back(pProjectile); }
-	void RemoveProjectile(Projectile* pProjectile);
+	void AddPlayerProjectile(PlayerProjectile* pProjectile) { m_aPlayerProjectiles.push_back(pProjectile); }
+	void RemovePlayerProjectile(PlayerProjectile* pProjectile);
+
+	void AddEnemyProjectile(EnemyProjectile* pProjectile) { m_aEnemyProjectiles.push_back(pProjectile); }
+	void RemoveEnemyProjectile(EnemyProjectile* pProjectile);
 
 	void DestroyEnemy(EnemyObject*);
 
@@ -23,7 +27,8 @@ public:
 
 private:
 	std::vector<EnemyObject*> m_aEnemies;
-	std::vector<Projectile*> m_aProjectiles;
+	std::vector<PlayerProjectile*> m_aPlayerProjectiles;
+	std::vector<EnemyProjectile*> m_aEnemyProjectiles;
 
 	BackgroundManager m_pBackground;
 	UIManager m_pUI;

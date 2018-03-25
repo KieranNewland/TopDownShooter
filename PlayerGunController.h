@@ -1,11 +1,11 @@
 #pragma once
 #include <vector>
-#include "Projectile.h"
-class GunController
+#include "SFML\Graphics.hpp"
+class PlayerGunController
 {
 public:
-	GunController();
-	~GunController();
+	PlayerGunController();
+	~PlayerGunController();
 
 public:
 	void Update(float);

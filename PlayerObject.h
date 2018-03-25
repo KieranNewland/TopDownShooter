@@ -1,6 +1,6 @@
 #pragma once
 #include "Character.h"
-#include "GunController.h"
+#include "PlayerGunController.h"
 
 class PlayerObject : public Character
 {
@@ -24,6 +24,6 @@ private:
 	const float m_nAccelerationStrength = 1.2f;
 	const float m_nDecelerationStrength = 6;
 
-	GunController m_pGun;
+	PlayerGunController m_pGun;
 };
 
