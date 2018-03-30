@@ -1,6 +1,7 @@
 #include "PlayerObject.h"
 #include "SFML\Graphics.hpp"
 #include "Game.h"
+#include "Screen.h"
 
 int PlayerObject::m_nMaxLives = 3;
 
@@ -37,6 +38,32 @@ void PlayerObject::Update(float nTimeDelta)
 	sf::Vector2f pPosition = GetPosition();
 	pPosition.x += m_nXAcceleration;
 	pPosition.y += m_nYAcceleration;
+
+	//Cap at the edge of the screen
+	if (pPosition.x < m_nShipRadius)
+	{
+		pPosition.x = m_nShipRadius;
+		m_nXAcceleration = 0;
+	}
+
+	if (pPosition.x > Screen::m_nScreenWidth - m_nShipRadius)
+	{
+		pPosition.x = Screen::m_nScreenWidth - m_nShipRadius;
+		m_nXAcceleration = 0;
+	}
+
+	if (pPosition.y < m_nShipRadius)
+	{
+		pPosition.y = m_nShipRadius;
+		m_nYAcceleration = 0;
+	}
+
+	if (pPosition.y > Screen::m_nScreenHeight - m_nShipRadius)
+	{
+		pPosition.y = Screen::m_nScreenHeight - m_nShipRadius;
+		m_nYAcceleration = 0;
+	}
+
 	SetPosition(pPosition);
 
 	//Update gun

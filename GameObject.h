@@ -11,22 +11,25 @@ public:
 	void SetTexture(const char*);
 	void Render(sf::RenderWindow&);
 
-	void SetPosition(const float nX, const float nY);
+	void SetPosition(const float, const float);
 	void SetPosition(sf::Vector2f);
 	void SetScale(const sf::Vector2f);
-	void SetCenterAnchor(sf::Vector2f pCenter);
+	void SetCenterAnchor(sf::Vector2f);
+	void SetRotation(float);
 	sf::Vector2f GetPosition();
+
+	void SetAlpha(float);
 
 	sf::Vector2u GetSize() { return m_pTexture.getSize(); }
 	sf::FloatRect GetBoundingBox() { return m_pSprite.getGlobalBounds(); }
 
 	int GetRenderLayer() { return m_nRenderLayer; }
-	void SetRenderLayer(int nLayer);
+	void SetRenderLayer(int);
 
 	void Destroy() { m_bDestroyed = true; }
 	bool GetDestroyedState() { return m_bDestroyed; }
 
-	virtual void Update(float nTimeDelta);
+	virtual void Update(float);
 
 	const int getIndex() const { return m_nObjectId; }
 
@@ -44,7 +47,5 @@ private:
 	static int m_nGameObjectIndex;
 
 	bool m_bDestroyed;
-
-	sf::Vector2f m_pCenterAnchor;
 };
 

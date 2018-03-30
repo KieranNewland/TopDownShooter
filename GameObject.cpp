@@ -35,7 +35,8 @@ void GameObject::Render(sf::RenderWindow &pWindow)
 
 void GameObject::SetCenterAnchor(sf::Vector2f pCenter)
 {
-	m_pCenterAnchor = pCenter;
+	sf::Vector2u pSize = GetSize();
+	m_pSprite.setOrigin(sf::Vector2f(pSize.x * pCenter.x, pSize.y * pCenter.y));
 	SetPosition(m_pSprite.getPosition());
 }
 
@@ -46,21 +47,18 @@ void GameObject::SetPosition(const float nX, const float nY)
 
 void GameObject::SetPosition(sf::Vector2f pPosition)
 {
-	sf::Vector2u pSize = GetSize();
-
-	pPosition.x -= pSize.x * m_pCenterAnchor.x;
-	pPosition.y -= pSize.y * m_pCenterAnchor.y;
-
 	m_pSprite.setPosition(pPosition);
+}
+
+void GameObject::SetRotation(float nRotation)
+{
+	m_pSprite.setRotation(nRotation);
 }
 
 sf::Vector2f GameObject::GetPosition()
 {
 	sf::Vector2f pPosition = m_pSprite.getPosition();
 	sf::Vector2u pSize = GetSize();
-
-	pPosition.x += m_pCenterAnchor.x * pSize.x;
-	pPosition.y += m_pCenterAnchor.y * pSize.y;
 	
 	return pPosition;
 }
@@ -74,4 +72,11 @@ void GameObject::SetRenderLayer(int nLayer)
 void GameObject::SetScale(const sf::Vector2f pScale)
 {
 	m_pSprite.setScale(pScale);
+}
+
+void GameObject::SetAlpha(float nAlpha)
+{
+	sf::Color pColour = m_pSprite.getColor();
+	pColour.a = nAlpha * 255;
+	m_pSprite.setColor(pColour);
 }

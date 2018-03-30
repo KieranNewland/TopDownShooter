@@ -93,6 +93,9 @@
     <ClCompile Include="EnemyProjectile.cpp">
       <Filter>Source Files\Character\Gun</Filter>
     </ClCompile>
+    <ClCompile Include="LaserExplosion.cpp">
+      <Filter>Source Files\Character\Gun</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PlayerObject.h">
@@ -132,6 +135,9 @@
       <Filter>Header Files\Character\Gun</Filter>
     </ClInclude>
     <ClInclude Include="EnemyProjectile.h">
+      <Filter>Header Files\Character\Gun</Filter>
+    </ClInclude>
+    <ClInclude Include="LaserExplosion.h">
       <Filter>Header Files\Character\Gun</Filter>
     </ClInclude>
   </ItemGroup>

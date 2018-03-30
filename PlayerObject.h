@@ -24,6 +24,8 @@ private:
 	const float m_nAccelerationStrength = 1.2f;
 	const float m_nDecelerationStrength = 6;
 
+	const float m_nShipRadius = 50;
+
 	PlayerGunController m_pGun;
 };
 
