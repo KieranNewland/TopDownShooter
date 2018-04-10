@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
-static class Screen
+class Screen
 {
 public:
 	static void Init(const int, const int);

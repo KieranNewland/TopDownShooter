@@ -6,6 +6,7 @@
 #include "PlayerObject.h"
 #include "BackgroundManager.h"
 #include "UIManager.h"
+#include "EnemySpawner.h"
 
 class GameManager
 {
@@ -21,6 +22,7 @@ public:
 	void AddEnemyProjectile(EnemyProjectile* pProjectile) { m_aEnemyProjectiles.push_back(pProjectile); }
 	void RemoveEnemyProjectile(EnemyProjectile* pProjectile);
 
+	void AddEnemy(EnemyObject*);
 	void DestroyEnemy(EnemyObject*);
 
 	static GameManager* m_pInstance;
@@ -33,5 +35,6 @@ private:
 	BackgroundManager m_pBackground;
 	UIManager m_pUI;
 	PlayerObject* m_pPlayerObject;
+	EnemySpawner m_pEnemySpawner;
 };
 

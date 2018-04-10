@@ -1,0 +1,12 @@
+{
+	"waves": [
+		{
+			"enemies":[{ "name":"John" },
+					{ "name":"Larry" }]
+		},
+		{
+			"enemies":[{ "name":"John" },
+					{ "name":"Larry" }]
+		}
+	]
+}

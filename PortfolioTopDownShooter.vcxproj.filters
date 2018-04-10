@@ -49,6 +49,9 @@
     <Filter Include="Source Files\Gameplay">
       <UniqueIdentifier>{963f0973-f51d-4119-a9cb-1ccc1a4b46b9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Tools">
+      <UniqueIdentifier>{e338095f-22d4-41bd-b4c0-226efc9daed1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -96,6 +99,9 @@
     <ClCompile Include="LaserExplosion.cpp">
       <Filter>Source Files\Character\Gun</Filter>
     </ClCompile>
+    <ClCompile Include="EnemySpawner.cpp">
+      <Filter>Source Files\Character\Enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PlayerObject.h">
@@ -139,6 +145,12 @@
     </ClInclude>
     <ClInclude Include="LaserExplosion.h">
       <Filter>Header Files\Character\Gun</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemySpawner.h">
+      <Filter>Header Files\Character\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="nlohmann\json.hpp">
+      <Filter>Header Files\Tools</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

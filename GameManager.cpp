@@ -10,14 +10,7 @@ GameManager::GameManager()
 	m_pPlayerObject = Game::AddGameObject<PlayerObject>();
 	m_pPlayerObject->SetPosition(sf::Vector2f(400, 500));
 
-	//Spawn enemies
-	for (int i = 0; i < 5; i++)
-	{
-		EnemyObject* pEnemyObject = Game::AddGameObject<EnemyObject>();
-		pEnemyObject->SetPosition(sf::Vector2f(200 + i * 100, 100));
-		pEnemyObject->SetRenderLayer(1);
-		m_aEnemies.push_back(pEnemyObject);
-	}
+	m_pEnemySpawner.SpawnNextWave();
 }
 
 GameManager::~GameManager()
@@ -92,6 +85,11 @@ void GameManager::RemoveEnemyProjectile(EnemyProjectile* pProjectile)
 	}
 }
 
+void GameManager::AddEnemy(EnemyObject* pEnemy)
+{
+	m_aEnemies.push_back(pEnemy);
+}
+
 void GameManager::DestroyEnemy(EnemyObject* pEnemy)
 {
 	for (int i = 0; i < m_aEnemies.size(); i++)
@@ -99,7 +97,10 @@ void GameManager::DestroyEnemy(EnemyObject* pEnemy)
 		if (m_aEnemies[i] == pEnemy)
 		{
 			m_aEnemies.erase(m_aEnemies.begin() + i);
-			return;
+			break;
 		}
 	}
+
+	if (m_aEnemies.size() == 0)
+		m_pEnemySpawner.SpawnNextWave();
 }
