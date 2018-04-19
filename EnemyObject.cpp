@@ -20,8 +20,6 @@ void EnemyObject::Update(float nTimeDelta)
 	if (m_nTimeUntilShot > 0)
 		return;
 
-	printf("Shooting");
-
 	EnemyProjectile *pProjectile = Game::AddGameObject<EnemyProjectile>();
 	pProjectile->SetPosition(GetPosition());
 	pProjectile->SetDirection(sf::Vector2f(0, 1));

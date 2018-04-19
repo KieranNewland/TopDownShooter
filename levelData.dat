@@ -1,12 +1,18 @@
 {
 	"waves": [
 		{
-			"enemies":[{ "name":"John" },
-					{ "name":"Larry" }]
+			"enemies":[{ "name":"John", "x":200, "y":100 },
+					{ "name":"Larry", "x":300, "y":100 },
+					{ "name":"Larry", "x":400, "y":100 },
+					{ "name":"Larry", "x":500, "y":100 },
+					{ "name":"Larry", "x":600, "y":100 }]
 		},
 		{
-			"enemies":[{ "name":"John" },
-					{ "name":"Larry" }]
+			"enemies":[{ "name":"John", "x":200, "y":100 },
+					{ "name":"Larry", "x":300, "y":80 },
+					{ "name":"Larry", "x":400, "y":60 },
+					{ "name":"Larry", "x":500, "y":80 },
+					{ "name":"Larry", "x":600, "y":100 }]
 		}
 	]
 }

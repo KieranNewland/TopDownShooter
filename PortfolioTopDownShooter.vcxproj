@@ -155,9 +155,11 @@
   <ItemGroup>
     <ClInclude Include="BackgroundManager.h" />
     <ClInclude Include="Character.h" />
+    <ClInclude Include="EnemyData.h" />
     <ClInclude Include="EnemyObject.h" />
     <ClInclude Include="EnemyProjectile.h" />
     <ClInclude Include="EnemySpawner.h" />
+    <ClInclude Include="EnemyWaveData.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="nlohmann\json.hpp" />

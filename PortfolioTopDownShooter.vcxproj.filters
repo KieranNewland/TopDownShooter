@@ -152,5 +152,11 @@
     <ClInclude Include="nlohmann\json.hpp">
       <Filter>Header Files\Tools</Filter>
     </ClInclude>
+    <ClInclude Include="EnemyWaveData.h">
+      <Filter>Header Files\Character\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyData.h">
+      <Filter>Header Files\Character\Enemy</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
